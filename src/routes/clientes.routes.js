@@ -1,6 +1,6 @@
 import { Router } from "express";
 //import {verificarToken} from '../'
-import {getClientes,getclientesxid,postInsertarcliente,putcliente,patchcliente,deletecliente} from '../controladores/clientesCtrl.js'
+import {getClientes, getclientesxid, getclientesxcedula, postInsertarcliente, putcliente, patchcliente, deletecliente} from '../controladores/clientesCtrl.js'
 import { verificarToken } from '../middlewares/auth.js';
 
 const router =Router()
