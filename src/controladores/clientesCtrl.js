@@ -105,10 +105,14 @@ export const deletecliente = async (req, res) => {
 };
 
 export const getclientesxcedula = async (req, res) => {
-  const { cedula } = req.params;
-  const result = await pool.query(
-    'SELECT * FROM clientes WHERE cli_identificacion = $1', [cedula]
-  );
-  if (result.rows.length === 0) return res.status(404).json(null);
-  res.json(result.rows[0]);
+  try {
+    const { cedula } = req.params;
+    const [result] = await conmyslq.query(
+      'SELECT * FROM clientes WHERE cli_identificacion = ?', [cedula]
+    );
+    if (result.length === 0) return res.status(404).json(null);
+    res.json(result[0]);
+  } catch (error) {
+    return res.status(500).json({ message: "Error en el servidor" });
+  }
 };
