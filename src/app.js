@@ -26,3 +26,7 @@ app.use((req,res,next)=>{
     })
 })
 export default app;
+
+process.on('uncaughtException', (err) => {
+  console.error('Error no capturado:', err);
+});
