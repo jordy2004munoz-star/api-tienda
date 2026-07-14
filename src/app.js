@@ -10,7 +10,7 @@ import authRoutes from './routes/auth.routes.js';
 const app= express();
 
 const corsOptions={
-    origin:'http://localhost:8101',
+    origin:'http://localhost:8100',
     methods:['GET','POST','PUT','PATCH','DELETE'],
     credentials:true
 }
