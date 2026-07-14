@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import clientesRoutes from './routes/clientes.routes.js';
 import authRoutes from './routes/auth.routes.js';
+import productosRoutes from './routes/productos.routes.js';
 
 const app = express();
 
@@ -15,14 +16,13 @@ const corsOptions = {
     credentials:true
 };
 
-
 app.use(cors(corsOptions));
 
-app.use(express.json()); // IMPORTANTE AQUÍ
-
+app.use(express.json());
 
 app.use('/api', authRoutes);
 app.use('/api', clientesRoutes);
+app.use('/api', productosRoutes);
 
 
 app.use((req,res)=>{
@@ -30,6 +30,5 @@ app.use((req,res)=>{
         message:'Endpoint not found'
     });
 });
-
 
 export default app;
