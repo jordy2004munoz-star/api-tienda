@@ -4,9 +4,13 @@ export const getClientes = async (req, res) => {
   try {
     const result = await conmyslq.query('SELECT * FROM _clientes');
     res.json(result.rows);
-  } catch (error) {
-    return res.status(500).json({ message: "Error al consultar clientes" });
-  }
+  }catch (error) {
+  console.error("ERROR CLIENTES:", error);
+
+  return res.status(500).json({
+    message: error.message
+  });
+}
 };
 
 export const getclientesxid = async (req, res) => {
