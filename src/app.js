@@ -7,11 +7,20 @@ import productosRoutes from './routes/productos.routes.js';
 
 const app = express();
 
+<<<<<<< HEAD
 const corsOptions = {
     origin: [
         'http://localhost:8100',
         'http://localhost:8101'
     ],
+=======
+
+
+const app= express();
+
+const corsOptions={
+    origin:'http://localhost:8100',
+>>>>>>> 8fe9709 (Corregir CORS)
     methods:['GET','POST','PUT','PATCH','DELETE'],
     credentials:true
 };
